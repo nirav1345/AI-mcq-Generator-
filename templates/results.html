@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MCQ Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>Generated MCQs</h1>
+
+    {% for mcq in mcqs %}
+    <div class="mcq" data-answered="false">
+      <div class="question">{{ mcq.question | safe }}</div>
+
+      {% for key, option in mcq.options.items() %}
+      <div class="option" data-key="{{ key }}" onclick="checkAnswer(this, '{{ key }}', '{{ mcq.correct }}')">
+        {{ key }}) {{ option | safe }}
+      </div>
+      {% endfor %}
+
+      <div class="correct-answer">
+        Correct Answer: {{ mcq.correct }}
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="download-links">
+      <a href="/download/{{ txt_filename }}">Download as TXT</a>
+      <a href="/download/{{ pdf_filename }}">Download as PDF</a>
+    </div>
+  </div>
+
+  <div id="glow-circle"></div>
+
+  <script>
+    function checkAnswer(element, selected, correct) {
+      selected = selected.trim();
+      correct = correct.trim();
+      const mcq = element.closest('.mcq');
+
+      if (mcq.dataset.answered === "true") return;
+      mcq.dataset.answered = "true";
+
+      const options = mcq.querySelectorAll('.option');
+      options.forEach(opt => opt.classList.remove('correct', 'incorrect'));
+
+      if (selected === correct) {
+        element.classList.add('correct');
+      } else {
+        element.classList.add('incorrect');
+        options.forEach(opt => {
+          if (opt.dataset.key === correct) {
+            opt.classList.add('correct');
+          }
+        });
+      }
+
+      mcq.querySelector('.correct-answer').style.display = 'block';
+    }
+
+    const glow = document.getElementById("glow-circle");
+
+    window.addEventListener("mousemove", (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+      glow.style.opacity = "1";
+    });
+
+    window.addEventListener("mouseout", (e) => {
+      if (!e.relatedTarget) {
+        glow.style.opacity = "0";
+        glow.style.left = "-100px";
+        glow.style.top = "-100px";
+      }
+    });
+  </script>
+</body>
+</html>

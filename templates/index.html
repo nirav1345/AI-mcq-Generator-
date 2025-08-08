@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI MCQ Generator</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+</head>
+<body>
+  <div class="form-box">
+    <h1>AI MCQ Generator</h1>
+    <p class="description">Upload a file and let AI create MCQs instantly</p>
+
+    <form
+      id="mcqForm"
+      action="/generate"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <div class="form-group">
+        <label for="file">Document (PDF, TXT, DOCX):</label>
+        <input
+          type="file"
+          id="file"
+          name="file"
+          accept=".pdf,.txt,.docx"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="num_questions">Number of Questions:</label>
+        <input
+          type="number"
+          id="num_questions"
+          name="num_questions"
+          min="1"
+          placeholder="e.g. 10"
+          required
+        />
+      </div>
+
+      <button type="submit" class="submit-btn">Generate MCQs</button>
+
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Generating your MCQs...</p>
+      </div>
+    </form>
+  </div>
+
+  <!-- Glow circle div -->
+  <div id="glow-circle"></div>
+
+<script>
+  const form = document.getElementById("mcqForm");
+  const loading = document.getElementById("loading");
+
+  form.addEventListener("submit", function () {
+    loading.style.display = "block";
+  });
+
+  const glow = document.getElementById("glow-circle");
+
+  window.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+    glow.style.opacity = "1";  // Show glow when mouse moves inside
+  });
+
+  window.addEventListener("mouseout", (e) => {
+    if (!e.relatedTarget) {    // Mouse left window entirely
+      glow.style.opacity = "0";     // Hide glow smoothly
+      glow.style.left = "-100px";   // Move offscreen left
+      glow.style.top = "-100px";    // Move offscreen top
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;      /* centers horizontally */
+    align-items: center;          /* CHANGE THIS from flex-start to center */
+    min-height: 100vh;
+
+    background-image: url('background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    background-color: #06021d; /* fallback */
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 30px 25px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(89, 17, 89, 0.6);
+    animation: fadeIn 0.6s ease-in-out;
+    text-align: center;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.mcq {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.question {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.option {
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    user-select: none;
+    font-size: 14px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.option:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+}
+
+.option.correct {
+    background-color: #00ffae !important;
+    color: black !important;
+    border: 2px solid #00ffae !important;
+    box-shadow: 0 0 12px #00ffae !important;
+}
+
+.option.incorrect {
+    background-color: #ff3b3b !important;
+    color: white !important;
+    border: 2px solid #ff3b3b !important;
+    box-shadow: 0 0 12px #ff3b3b !important;
+}
+
+.correct-answer {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #00ffae;
+    font-weight: 600;
+    display: none;
+    text-align: left;
+    word-break: break-word;
+}
+
+.view-answer-btn {
+    padding: 12px 25px;
+    background: white;
+    color: black;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.view-answer-btn:hover {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.download-links {
+    text-align: center;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.download-links a {
+    font-size: 13.3333px;
+    display: inline-flex;           /* use flex for better centering */
+    align-items: center;            /* vertical center */
+    justify-content: center;        /* horizontal center */
+    width: 140px;                   /* fixed width */
+    height: 47.5px;                 /* fixed height to match your desired size */
+    padding: 0 25px;                /* horizontal padding, no vertical */
+    background: white;
+    color: black;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+    white-space: nowrap;            /* prevent wrapping inside button */
+    overflow: hidden;               /* hide overflow */
+    text-overflow: ellipsis;        /* add ellipsis if text too long */
+    cursor: pointer;
+    user-select: none;
+}
+
+.download-links a:hover {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+#glow-circle {
+    position: fixed;
+    pointer-events: none;
+    width: 80px;
+    height: 80px;
+    background: rgba(89, 17, 89, 0.6);
+    border-radius: 50%;
+    filter: blur(25px);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, background 0.2s ease;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    opacity: 0;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+      padding: 20px 0;
+    }
+    .container {
+        padding: 20px 15px;
+        width: 95%;
+    }
+    .question {
+        font-size: 14px;
+    }
+    .option {
+        font-size: 13px;
+        padding: 10px 15px;
+        border-radius: 25px;
+    }
+    .view-answer-btn,
+    .download-links a {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 120px;
+    }
+    .download-links {
+        gap: 10px;
+    }
+}
