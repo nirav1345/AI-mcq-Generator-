@@ -1,0 +1,85 @@
+<think>
+The user wants me to generate 5 Multiple Choice Questions (MCQs) based on the provided Python syllabus text. I need to create questions that cover different units and topics from the syllabus. Let me break down the units and create diverse questions:
+
+Unit I: Introduction and Syntax
+- Features of Python
+- Python building blocks
+- Data Types
+
+Unit II: Python Operators and Control Flow
+- Basic Operators
+- Control Flow statements
+
+Unit III: Data Structures
+- Lists, Tuples, Sets, Dictionaries
+
+Unit IV: Functions, Modules and Packages
+- Built-in functions
+- User-defined functions
+- Modules and packages
+
+Unit V: Object Oriented Programming
+- Classes and objects
+- Inheritance, etc.
+
+Unit VI: File I/O and Exception Handling
+- File handling
+- Exception handling
+
+Let me create 5 MCQs covering different units:
+
+1. From Unit I - Python features
+2. From Unit II - Operators
+3. From Unit III - Data structures
+4. From Unit IV - Functions/scope
+5. From Unit VI - Exception handling
+
+I need to make sure each question has 4 options and clearly indicates the correct answer.
+</think>
+
+Based on the provided Python syllabus, here are 5 multiple-choice questions covering different units:
+
+## MCQ 1
+**Question:** Which of the following is NOT a feature of Python mentioned in Unit I?
+A) Interactive
+B) Object-oriented  
+C) Compiled
+D) Platform independent
+
+**Correct Answer:** C) Compiled
+
+## MCQ 2
+**Question:** Which operator has the highest precedence among the following Python operators?
+A) Arithmetic operators
+B) Comparison/Relational operators
+C) Logical operators
+D) Assignment operators
+
+**Correct Answer:** A) Arithmetic operators
+
+## MCQ 3
+**Question:** Which of the following Python data structures is ordered, mutable, and allows duplicate elements?
+A) Set
+B) Dictionary
+C) Tuple
+D) List
+
+**Correct Answer:** D) List
+
+## MCQ 4
+**Question:** What is the scope of a variable defined inside a function in Python?
+A) Global scope
+B) Local scope
+C) Module scope
+D) Class scope
+
+**Correct Answer:** B) Local scope
+
+## MCQ 5
+**Question:** Which statement is used in Python for exception handling to catch and handle exceptions?
+A) raise
+B) try-except
+C) finally
+D) throw
+
+**Correct Answer:** B) try-except

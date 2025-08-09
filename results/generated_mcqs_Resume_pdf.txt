@@ -1,0 +1,51 @@
+<think>
+Let me analyze the text provided about Nirav Thakur and generate 4 appropriate MCQs based on the resume content. I should create questions that test comprehension of key details from different sections of the resume.
+
+Key information I can extract:
+- Location: Navi Mumbai, Maharashtra
+- Education: SSC from St Joseph high school (2021), Diploma in Computer Engineering from Pillai HOC College (2025)
+- Skills: Programming (HTML, CSS, JavaScript), MS Office, etc.
+- Internship: Hardware & Networking Intern at Quasco Consulting India Pvt Ltd (Jan 2024 - Mar 2024)
+- Event Management: Euforia 2023/2024 at Pillai HOCL Campus
+- Languages: English (Fluent), Hindi (Fluent), Marathi (Conversational)
+
+I'll create 4 MCQs covering different aspects:
+1. Education details
+2. Internship experience
+3. Technical skills
+4. Personal information/languages
+
+Let me format these properly according to the user's requested format.
+</think>
+
+## MCQ 1
+**Question:** What is Nirav Thakur's expected year of completion for his Diploma in Computer Engineering?
+A) 2021
+B) 2023
+C) 2024
+D) 2025
+**Correct Answer:** D
+
+## MCQ 2
+**Question:** Which company did Nirav Thakur complete his Hardware & Networking internship with?
+A) Pillai HOC College of Engineering and Technology
+B) Quasco Consulting India Pvt Ltd
+C) St Joseph High School
+D) Euforia Events
+**Correct Answer:** B
+
+## MCQ 3
+**Question:** Which programming languages does Nirav Thakur list under his basic programming skills?
+A) Python, Java, C++
+B) HTML, CSS, JavaScript
+C) SQL, PHP, Ruby
+D) React, Angular, Vue.js
+**Correct Answer:** B
+
+## MCQ 4
+**Question:** What is Nirav Thakur's proficiency level in Marathi language?
+A) Fluent
+B) Native
+C) Conversational
+D) Basic
+**Correct Answer:** C
