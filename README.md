@@ -46,7 +46,7 @@ project-folder/
 
 1. Clone the repository (or download the project folder):
 
-```bash
+bash
 git clone https://github.com/your-username/AI-mcq-Generator.git
 cd AI-mcq-Generator
 
