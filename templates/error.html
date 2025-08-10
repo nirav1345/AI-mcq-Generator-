@@ -1,0 +1,68 @@
+<!-- templates/error.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - MCQ Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d9534f;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        pre {
+            text-align: left;
+            background: #f1f1f1;
+            padding: 10px;
+            overflow-x: auto;
+            border-radius: 6px;
+            color: #c7254e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚠️ Something went wrong</h1>
+        <p>{{ error_message }}</p>
+
+        {% if raw_output %}
+        <h3>Debug Info:</h3>
+        <pre>{{ raw_output }}</pre>
+        {% endif %}
+
+        <a href="/">⬅ Go Back</a>
+    </div>
+</body>
+</html>

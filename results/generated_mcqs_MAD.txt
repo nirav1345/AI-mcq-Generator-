@@ -1,107 +1,62 @@
-<think>
-The user wants me to generate 6 multiple-choice questions (MCQs) based on the given text about Mobile Application Development (MAD - 22617). I need to create questions that cover different units and topics from the provided syllabus.
-
-Looking at the search results, I can see various Android-related MCQs and answers which can help me understand the typical format and topics that are commonly asked.
-
-Let me analyze the text and create questions from different units:
-
-Unit I: Android and its tools
-- Introduction to Android, Open handset alliance, Android Ecosystem
-- Need of Android, Features Of Android
-- Tools and software required
-- Android Architecture
-
-Unit II: Installation and Configuration
-- Operating System, Java JDK, Android SDK
-- Android Development Tools(ADT)
-- Android Virtual Devices(AVDs)
-- Emulators
-- Dalvik Virtual Machine, Difference between JVM and DVM
-- Android Studio and SDK installation
-
-Unit III: UI Components and Layouts
-- Control Flow, Directory Structure
-- Components of a screen, Fundamental UI Design
-- Different layouts: Linear, Absolute, Frame, Table, Relative
-
-Unit IV: Designing User Interface With View
-- Various UI components like TextView, EditText, Button, etc.
-- ListView, GridView, ImageView, etc.
-- Time and Date Picker
-
-Unit V: Activity and Multimedia with Database
-- Intent, Intent_Filter
-- Activity Lifecycle, Broadcast Lifecycle
-- Content Provider, Fragments
-- Service features and lifecycle
-- Android System Architecture, Multimedia
-- Audio, Camera, Bluetooth, Animation
-- SQLite Database
-
-Unit VI: Security and Application Deployment
-- SMS Telephony
-- Location Based Services
-- Android Security Model
-- Application Deployment, Google Play Store
-
-Let me create 6 MCQs covering different units:
-
-1. Unit I - Android Architecture/Features
-2. Unit II - Dalvik Virtual Machine
-3. Unit III - Layouts
-4. Unit IV - UI Components
-
-
-5. I'll focus on creating MCQs for the Activity Lifecycle and Services from Unit V
-6. I'll develop a question related to Application Deployment from Unit VI
-
-I'll draw insights from key Android development concepts like the activity lifecycle, service types, and deployment processes to craft precise and challenging multiple-choice questions that test understanding of core Android development principles.
-</think>
-
-## MCQ 1
-Question: Which of the following is a core component of Android Architecture?
-A) Windows Kernel
-B) Dalvik Virtual Machine
-C) iOS Framework
-D) .NET Runtime
-Correct Answer: B
-
-## MCQ 2
-Question: What is the primary difference between JVM (Java Virtual Machine) and DVM (Dalvik Virtual Machine)?
-A) JVM is faster than DVM
-B) DVM is optimized for mobile devices with limited memory and processing power
-C) JVM supports more programming languages
-D) DVM only runs on desktop computers
-Correct Answer: B
-
-## MCQ 3
-Question: Which layout in Android allows you to position child views relative to each other or relative to the parent?
-A) Linear Layout
-B) Frame Layout
-C) Relative Layout
-D) Absolute Layout
-Correct Answer: C
-
-## MCQ 4
-Question: Which UI component is used to display a list of scrollable items in Android?
-A) Grid View
-B) Text View
-C) List View
-D) Scroll View
-Correct Answer: C
-
-## MCQ 5
-Question: What is the main purpose of an Intent in Android?
-A) To create user interfaces
-B) To manage database connections
-C) To facilitate communication between different components of an application
-D) To handle network requests
-Correct Answer: C
-
-## MCQ 6
-Question: Which database is primarily used in Android for local data storage?
-A) MySQL
-B) PostgreSQL
-C) SQLite
-D) Oracle
-Correct Answer: C
+[
+  {
+    "question": "What is the Open Handset Alliance in relation to Android?",
+    "options": {
+      "A": "A consortium of companies developing Android ecosystem",
+      "B": "Google's internal development team",
+      "C": "An Android app store",
+      "D": "A mobile hardware manufacturer"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which virtual machine is specifically used by Android applications?",
+    "options": {
+      "A": "Java Virtual Machine (JVM)",
+      "B": "Dalvik Virtual Machine (DVM)",
+      "C": "Python Virtual Machine",
+      "D": "C++ Runtime Environment"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which layout arranges UI components in a single row or column?",
+    "options": {
+      "A": "Relative Layout",
+      "B": "Table Layout",
+      "C": "Linear Layout",
+      "D": "Frame Layout"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which UI component is used to display a list of scrollable items in Android?",
+    "options": {
+      "A": "Grid View",
+      "B": "List View",
+      "C": "Scroll View",
+      "D": "Text View"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "What is an Intent in Android development?",
+    "options": {
+      "A": "A UI layout component",
+      "B": "A database connection",
+      "C": "A messaging object used to request actions from other components",
+      "D": "A multimedia framework"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "What is required before deploying an Android application to Google Play Store?",
+    "options": {
+      "A": "Creating a small application only",
+      "B": "Signing the application",
+      "C": "Installing SQLite database",
+      "D": "Setting up Bluetooth connectivity"
+    },
+    "correct": "B"
+  }
+]
