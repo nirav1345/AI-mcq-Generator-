@@ -213,6 +213,28 @@ def save_mcqs_to_file(mcqs, filename):
         json.dump(mcqs, f, ensure_ascii=False, indent=2)
     return results_path
 
+def safe_text(text: str) -> str:
+    """
+    Replace common Unicode punctuation with ASCII equivalents so FPDF (latin-1)
+    won't crash. Use this for all text written to the PDF.
+    """
+    if not isinstance(text, str):
+        return text
+    replacements = {
+        "—": "-",  # em dash
+        "–": "-",  # en dash
+        "“": '"',
+        "”": '"',
+        "‘": "'",
+        "’": "'",
+        "…": "...",
+        "•": "-",
+        "\u00A0": " ",  # non-breaking space
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    # optionally remove other characters outside latin1 range:
+    return ''.join(ch if ord(ch) < 256 else '?' for ch in text)
 
 def hex_to_rgb(hex_color):
     """Convert HEX color to RGB tuple."""
@@ -220,50 +242,71 @@ def hex_to_rgb(hex_color):
     return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
 def create_pdf(mcqs, filename):
-    """
-    Create a styled PDF with the given MCQs.
-    """
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
 
-    # Color palette
+    # Colors
     color_header = hex_to_rgb("2E0B45")
     color_black = hex_to_rgb("000000")
-    color_option = hex_to_rgb("1E163F")
     color_correct = hex_to_rgb("131534")
+    color_divider = (220, 220, 220)  # softer grey
 
-    # --- HEADER ---
+    # Header
     pdf.set_fill_color(*color_header)
     pdf.set_text_color(255, 255, 255)
     pdf.set_font("Arial", "B", 18)
-    pdf.cell(0, 12, "Generated MCQs", ln=True, align="C", fill=True)
+    pdf.cell(0, 12, safe_text("Generated MCQs"), ln=True, align="C", fill=True)
     pdf.ln(8)
 
-    # --- QUESTIONS ---
     for i, m in enumerate(mcqs, start=1):
-        # Question number & text
-        pdf.set_text_color(*color_header)
+        # ===== Question Header =====
+        pdf.set_fill_color(*color_header)
+        pdf.set_text_color(255, 255, 255)
         pdf.set_font("Arial", "B", 12)
-        pdf.multi_cell(0, 8, f"{i}. {m['question']}")
+
+        question_text = safe_text(f"{i}. {m['question']}")
+        # Estimate height for proper background sizing
+        start_x = pdf.get_x()
+        start_y = pdf.get_y()
+        pdf.multi_cell(0, 8, question_text, align="L")
+        end_y = pdf.get_y()
+
+        # Draw filled rectangle behind text
+        pdf.set_xy(start_x, start_y)
+        pdf.set_fill_color(*color_header)
+        pdf.set_text_color(255, 255, 255)
+        pdf.multi_cell(0, 8, question_text, align="L", fill=True)
         pdf.ln(1)
 
-        # Options
+        # ===== Options =====
+        pdf.set_text_color(*color_black)
+        pdf.set_font("Arial", "", 11)
         for key in ["A", "B", "C", "D"]:
-            opt_text = f"{key}) {m['options'][key]}"
-            pdf.set_fill_color(*color_option)
-            pdf.set_text_color(255, 255, 255)
-            pdf.set_font("Arial", "", 11)
-            pdf.multi_cell(0, 7, f"  {opt_text}", fill=True)
+            opt_text = safe_text(f"{key}) {m['options'][key]}")
+            pdf.multi_cell(0, 7, opt_text)
+            # Divider line
+            pdf.set_draw_color(*color_divider)
+            pdf.set_line_width(0.2)
+            x = pdf.l_margin
+            y = pdf.get_y()
+            pdf.line(x, y, x + (pdf.w - pdf.l_margin - pdf.r_margin), y)
             pdf.ln(1)
 
-        # Correct answer
+        # ===== Correct Answer =====
         pdf.set_fill_color(*color_correct)
         pdf.set_text_color(255, 255, 255)
         pdf.set_font("Arial", "B", 11)
-        pdf.multi_cell(0, 7, f"Correct Answer: {m['correct']}", fill=True)
+        pdf.multi_cell(0, 7, safe_text(f"Correct Answer: {m['correct']}"), fill=True)
         pdf.ln(6)
 
+    # ===== Footer =====
+    pdf.ln(10)
+    pdf.set_font("Arial", "I", 9)
+    pdf.set_text_color(100, 100, 100)
+    pdf.multi_cell(0, 6, safe_text("Downloaded from MCQ Generator - All Rights Reserved 2025"), align="C")
+
+    # Save PDF
     pdf_path = os.path.join(app.config['RESULTS_FOLDER'], filename)
     pdf.output(pdf_path)
     return pdf_path

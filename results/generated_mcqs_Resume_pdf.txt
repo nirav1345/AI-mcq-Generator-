@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Where is Nirav Thakur located?",
+    "options": {
+      "A": "Mumbai, Maharashtra",
+      "B": "Navi Mumbai, Maharashtra",
+      "C": "Pune, Maharashtra",
+      "D": "Delhi, India"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "What diploma is Nirav currently pursuing?",
+    "options": {
+      "A": "Diploma in Information Technology",
+      "B": "Diploma in Mechanical Engineering",
+      "C": "Diploma in Computer Engineering",
+      "D": "Diploma in Electrical Engineering"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "At which company did Nirav complete his Hardware & Networking internship?",
+    "options": {
+      "A": "Pillai HOCL Campus",
+      "B": "St Joseph High School",
+      "C": "Euforia Events",
+      "D": "Quasco Consulting India Pvt Ltd"
+    },
+    "correct": "D"
+  }
+]
