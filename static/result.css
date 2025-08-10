@@ -3,23 +3,22 @@ body {
     margin: 0;
     padding: 40px 0;
     display: flex;
-    justify-content: center;      /* centers horizontally */
-    align-items: center;          /* CHANGE THIS from flex-start to center */
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-
     background-image: url('background.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
     background-color: #06021d; /* fallback */
     color: white;
 }
 
+/* Main container */
 .container {
     width: 90%;
     max-width: 800px;
-    padding: 30px 25px;
+    padding: 35px 30px;
     background-color: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(25px);
@@ -40,60 +39,87 @@ h1 {
     color: white;
     margin-bottom: 15px;
     font-weight: 600;
+    font-size: clamp(20px, 4vw, 28px);
 }
 
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    margin-bottom: 20px;
+    background: white;
+    color: black;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+/* MCQ Card */
 .mcq {
     background-color: rgba(255, 255, 255, 0.12);
     border-radius: 20px;
-    padding: 20px 25px;
+    padding: 22px 25px;
     margin-bottom: 20px;
     border: 1.5px solid rgba(255, 255, 255, 0.25);
     text-align: left;
     box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+.mcq:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
 .question {
-    font-size: 16px;
+    font-size: clamp(14px, 2vw, 16px);
     font-weight: 600;
     color: white;
     margin-bottom: 15px;
 }
 
+/* Options */
 .option {
-    padding: 12px 20px;
+    padding: 14px 20px;
     margin-bottom: 12px;
     background-color: rgba(255, 255, 255, 0.12);
     color: white;
     cursor: pointer;
     border: 2px solid transparent;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    border-radius: 15px;
+    transition: all 0.25s ease;
     user-select: none;
-    font-size: 14px;
+    font-size: clamp(13px, 2vw, 15px);
     max-width: 100%;
     word-wrap: break-word;
 }
 
 .option:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
 .option.correct {
     background-color: #00ffae !important;
     color: black !important;
     border: 2px solid #00ffae !important;
-    box-shadow: 0 0 12px #00ffae !important;
+    box-shadow: 0 0 15px #00ffae !important;
 }
 
 .option.incorrect {
     background-color: #ff3b3b !important;
     color: white !important;
     border: 2px solid #ff3b3b !important;
-    box-shadow: 0 0 12px #ff3b3b !important;
+    box-shadow: 0 0 15px #ff3b3b !important;
 }
 
+/* Correct Answer Text */
 .correct-answer {
     margin-top: 10px;
     font-size: 14px;
@@ -104,25 +130,7 @@ h1 {
     word-break: break-word;
 }
 
-.view-answer-btn {
-    padding: 12px 25px;
-    background: white;
-    color: black;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s ease;
-    margin-top: 10px;
-    display: inline-block;
-}
-
-.view-answer-btn:hover {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
+/* Download Links */
 .download-links {
     text-align: center;
     margin-top: 25px;
@@ -133,25 +141,23 @@ h1 {
 }
 
 .download-links a {
-    font-size: 13.3333px;
-    display: inline-flex;           /* use flex for better centering */
-    align-items: center;            /* vertical center */
-    justify-content: center;        /* horizontal center */
-    width: 140px;                   /* fixed width */
-    height: 47.5px;                 /* fixed height to match your desired size */
-    padding: 0 25px;                /* horizontal padding, no vertical */
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    height: 47.5px;
+    padding: 0 25px;
     background: white;
     color: black;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
     box-sizing: border-box;
-    white-space: nowrap;            /* prevent wrapping inside button */
-    overflow: hidden;               /* hide overflow */
-    text-overflow: ellipsis;        /* add ellipsis if text too long */
-    cursor: pointer;
-    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .download-links a:hover {
@@ -159,6 +165,8 @@ h1 {
     color: white;
     border: 2px solid white;
 }
+
+/* Glow Circle Effect */
 #glow-circle {
     position: fixed;
     pointer-events: none;
@@ -174,27 +182,31 @@ h1 {
     opacity: 0;
 }
 
+/* Mobile responsiveness */
 @media screen and (max-width: 500px) {
     body {
-      padding: 20px 0;
+        padding: 20px 0;
     }
     .container {
         padding: 20px 15px;
         width: 95%;
+    }
+    h1 {
+        font-size: 18px;
     }
     .question {
         font-size: 14px;
     }
     .option {
         font-size: 13px;
-        padding: 10px 15px;
+        padding: 12px 15px;
         border-radius: 25px;
     }
-    .view-answer-btn,
-    .download-links a {
-        padding: 10px 20px;
-        font-size: 14px;
+    .download-links a,
+    .back-btn {
+        font-size: 13px;
         min-width: 120px;
+        padding: 10px 15px;
     }
     .download-links {
         gap: 10px;

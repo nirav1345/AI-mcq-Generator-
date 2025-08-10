@@ -214,24 +214,54 @@ def save_mcqs_to_file(mcqs, filename):
     return results_path
 
 
+def hex_to_rgb(hex_color):
+    """Convert HEX color to RGB tuple."""
+    hex_color = hex_color.lstrip('#')
+    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+
 def create_pdf(mcqs, filename):
     """
-    mcqs: list of dicts as returned by _validate_mcq_list
+    Create a styled PDF with the given MCQs.
     """
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
-    pdf.set_font("Arial", size=12)
 
+    # Color palette
+    color_header = hex_to_rgb("2E0B45")
+    color_black = hex_to_rgb("000000")
+    color_option = hex_to_rgb("1E163F")
+    color_correct = hex_to_rgb("131534")
+
+    # --- HEADER ---
+    pdf.set_fill_color(*color_header)
+    pdf.set_text_color(255, 255, 255)
+    pdf.set_font("Arial", "B", 18)
+    pdf.cell(0, 12, "Generated MCQs", ln=True, align="C", fill=True)
+    pdf.ln(8)
+
+    # --- QUESTIONS ---
     for i, m in enumerate(mcqs, start=1):
-        q_text = f"{i}. {m['question']}"
-        pdf.multi_cell(0, 7, q_text)
+        # Question number & text
+        pdf.set_text_color(*color_header)
+        pdf.set_font("Arial", "B", 12)
+        pdf.multi_cell(0, 8, f"{i}. {m['question']}")
         pdf.ln(1)
+
+        # Options
         for key in ["A", "B", "C", "D"]:
-            opt_text = f"    {key}) {m['options'][key]}"
-            pdf.multi_cell(0, 7, opt_text)
-        pdf.ln(1)
-        pdf.multi_cell(0, 7, f"Correct Answer: {m['correct']}")
+            opt_text = f"{key}) {m['options'][key]}"
+            pdf.set_fill_color(*color_option)
+            pdf.set_text_color(255, 255, 255)
+            pdf.set_font("Arial", "", 11)
+            pdf.multi_cell(0, 7, f"  {opt_text}", fill=True)
+            pdf.ln(1)
+
+        # Correct answer
+        pdf.set_fill_color(*color_correct)
+        pdf.set_text_color(255, 255, 255)
+        pdf.set_font("Arial", "B", 11)
+        pdf.multi_cell(0, 7, f"Correct Answer: {m['correct']}", fill=True)
         pdf.ln(6)
 
     pdf_path = os.path.join(app.config['RESULTS_FOLDER'], filename)

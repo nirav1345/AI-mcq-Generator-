@@ -1,3 +1,4 @@
+/* Base styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -11,25 +12,25 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
     background-color: #06021d; /* fallback */
 }
+
 #glow-circle {
-  position: fixed;
-  pointer-events: none;
-  width: 80px;
-  height: 80px;
-  background: rgba(89, 17, 89, 0.6);
-  border-radius: 50%;
-  filter: blur(25px);
-  transform: translate(-50%, -50%);
-  transition: background 0.2s ease;
-  z-index: 9999;
-  mix-blend-mode: screen;
-  opacity: 0;
-  transition: opacity 0.3s ease, background 0.2s ease;
+    position: fixed;
+    pointer-events: none;
+    width: 80px;
+    height: 80px;
+    background: rgba(89, 17, 89, 0.6);
+    border-radius: 50%;
+    filter: blur(25px);
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 0.3s ease, background 0.2s ease;
 }
 
+/* Form Box */
 .form-box {
     width: 400px;
     padding: 30px;
@@ -40,6 +41,7 @@ body {
     text-align: center;
     box-shadow: 0 0 40px rgba(89, 17, 89, 0.6);
     animation: fadeIn 0.6s ease-in-out;
+    box-sizing: border-box; /* ensures children respect padding */
 }
 
 @keyframes fadeIn {
@@ -48,16 +50,27 @@ body {
 }
 
 h1 {
-    color: white;  /* keep text white */
+    color: white;
     margin-bottom: 10px;
+    font-size: clamp(20px, 5vw, 28px);
 }
 
 p.description {
-    color: rgba(255, 255, 255, 0.85);  /* white with some opacity */
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(12px, 4vw, 14px);
     margin-bottom: 20px;
 }
 
+/* Divider lines */
+.form-box hr {
+    border: none;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+    margin: 15px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Inputs & Labels */
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -66,22 +79,24 @@ p.description {
 label {
     display: block;
     margin-bottom: 5px;
-    color: white;  /* labels white */
+    color: white;
     font-weight: 600;
+    font-size: clamp(12px, 4vw, 14px);
 }
 
 input[type="file"],
 input[type="number"] {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     margin-top: 5px;
     border: none;
     border-bottom: 1.5px solid rgba(255, 255, 255, 0.7);
     background: transparent;
-    color: white;  /* input text white */
-    font-size: 14px;
+    color: white;
+    font-size: clamp(14px, 4vw, 16px);
     outline: none;
     transition: border-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 input[type="file"]:focus,
@@ -93,9 +108,10 @@ input::placeholder {
     color: rgba(255, 255, 255, 0.5);
 }
 
+/* Submit Button */
 .submit-btn {
     width: 100%;
-    padding: 14px;
+    padding: 16px;
     background: white;
     color: black;
     border-radius: 30px;
@@ -103,6 +119,7 @@ input::placeholder {
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
+    font-size: clamp(14px, 4vw, 16px);
 }
 
 .submit-btn:hover {
@@ -111,6 +128,7 @@ input::placeholder {
     border: 2px solid white;
 }
 
+/* Loading State */
 .loading {
     display: none;
     margin-top: 15px;
@@ -133,9 +151,32 @@ input::placeholder {
     100% { transform: rotate(360deg); }
 }
 
+/* Mobile Tweaks */
 @media screen and (max-width: 500px) {
-    .form-box {
-        width: 90%;
+    body {
         padding: 20px;
+    }
+
+    .form-box {
+        width: 100%;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(89, 17, 89, 0.5);
+    }
+
+    .form-box hr {
+        margin: 10px 0;
+    }
+
+    input[type="file"],
+    input[type="number"],
+    .submit-btn {
+        padding: 16px;
+    }
+
+    #glow-circle {
+        width: 60px;
+        height: 60px;
+        filter: blur(20px);
     }
 }

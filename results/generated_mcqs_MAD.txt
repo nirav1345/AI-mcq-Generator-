@@ -1,61 +1,101 @@
 [
   {
-    "question": "What is the Open Handset Alliance in relation to Android?",
+    "question": "How many main layers are there in Android Architecture?",
     "options": {
-      "A": "A consortium of companies developing Android ecosystem",
-      "B": "Google's internal development team",
-      "C": "An Android app store",
-      "D": "A mobile hardware manufacturer"
+      "A": "3 layers",
+      "B": "4 layers",
+      "C": "5 layers",
+      "D": "6 layers"
     },
-    "correct": "A"
+    "correct": "C"
   },
   {
-    "question": "Which virtual machine is specifically used by Android applications?",
+    "question": "Which virtual machine is used in Android for running applications?",
     "options": {
       "A": "Java Virtual Machine (JVM)",
       "B": "Dalvik Virtual Machine (DVM)",
-      "C": "Python Virtual Machine",
-      "D": "C++ Runtime Environment"
+      "C": "Android Runtime (ART)",
+      "D": "Both DVM and ART"
+    },
+    "correct": "D"
+  },
+  {
+    "question": "Which of the following is NOT a type of Android layout mentioned in the syllabus?",
+    "options": {
+      "A": "Linear Layout",
+      "B": "Circular Layout",
+      "C": "Frame Layout",
+      "D": "Relative Layout"
     },
     "correct": "B"
   },
   {
-    "question": "Which layout arranges UI components in a single row or column?",
-    "options": {
-      "A": "Relative Layout",
-      "B": "Table Layout",
-      "C": "Linear Layout",
-      "D": "Frame Layout"
-    },
-    "correct": "C"
-  },
-  {
-    "question": "Which UI component is used to display a list of scrollable items in Android?",
+    "question": "Which UI component is used for displaying a list of scrollable items in Android?",
     "options": {
       "A": "Grid View",
-      "B": "List View",
-      "C": "Scroll View",
-      "D": "Text View"
-    },
-    "correct": "B"
-  },
-  {
-    "question": "What is an Intent in Android development?",
-    "options": {
-      "A": "A UI layout component",
-      "B": "A database connection",
-      "C": "A messaging object used to request actions from other components",
-      "D": "A multimedia framework"
+      "B": "Scroll View",
+      "C": "List View",
+      "D": "Image View"
     },
     "correct": "C"
   },
   {
-    "question": "What is required before deploying an Android application to Google Play Store?",
+    "question": "What is the purpose of Intent in Android?",
     "options": {
-      "A": "Creating a small application only",
-      "B": "Signing the application",
-      "C": "Installing SQLite database",
-      "D": "Setting up Bluetooth connectivity"
+      "A": "To manage database connections",
+      "B": "To handle user interface layouts",
+      "C": "To facilitate communication between app components",
+      "D": "To manage device sensors"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which of the following is a feature of Android Services?",
+    "options": {
+      "A": "They have a user interface",
+      "B": "They run in the background",
+      "C": "They can only access local data",
+      "D": "They require constant user interaction"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "What is the necessity of SQLite database in Android applications?",
+    "options": {
+      "A": "For network communication",
+      "B": "For local data storage",
+      "C": "For user interface design",
+      "D": "For multimedia playback"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "What is required to display maps in Android Location Based Services?",
+    "options": {
+      "A": "Camera permission",
+      "B": "Storage permission",
+      "C": "Maps API key",
+      "D": "Bluetooth permission"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "What is the Android Security Model primarily based on?",
+    "options": {
+      "A": "User authentication only",
+      "B": "Network encryption",
+      "C": "Permissions and sandboxing",
+      "D": "Hardware security"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Where can Android applications be deployed for public distribution?",
+    "options": {
+      "A": "Only on device storage",
+      "B": "Google Play Store",
+      "C": "Only through email",
+      "D": "Only on local networks"
     },
     "correct": "B"
   }
