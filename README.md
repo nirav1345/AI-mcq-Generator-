@@ -95,3 +95,6 @@ Notes
 	•	Ensure your API keys are valid and correctly set in the .env file.
 	•	This app uses Flask’s development server, which is not suitable for production. For production deployment, use a WSGI server such as Gunicorn.
 	•	Supported document types for upload: PDF and DOCX.
+
+
+All rights reserved Nirav Thakur 2025 
